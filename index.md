@@ -83,9 +83,10 @@ All teams are required to return two csv files for evaluating object discovery a
 Participant's can refer to the baseline code providied [here](https://github.com/learn2phoenix/cvpr22_vplow_ow). The code is based on [2].
 
  
-## Evaluation server and submission
-**TBA**
-<!-- <div class="toc" markdown="1"> -->
+## Evaluation protocol
+Submissions will be ranked based on the following metric:
+
+$$performance = \Sigma_{1}^{N} \frac{purity_{i}*N_{i}}{rank_{i}} $$
 
 ## References
 
