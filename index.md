@@ -2,17 +2,17 @@
 title: Home
 ---
 
-# Foundational Model without Descriptive Caption (FMDC) Challenge
+# Object Discovery Challenge 
 
 in accordance with [VPLOW workshop](https://vplow.github.io/vplow_3rd.html) at CVPR 2023, Vancouver, Canada.
 
-{% include figure.html img="car-images.png" alt="intro image here" caption="SOFAR (SOCAR: Socially-Obtained CAR image dataset" width="99%" %}
+<!-- {% include figure.html img="car-images.png" alt="intro image here" caption="SOFAR (SOCAR: Socially-Obtained CAR image dataset" width="99%" %} -->
  
 
 <!-- <div class="toc" markdown="1"> -->
 ## Introduction
 
-This year, in accordance with Visual Perception via Learning in an Open World (VPLOW) workshop, we firstly organize Foundational Model without Descriptive Caption (FMDC) challenge in CVPR 2023. This year's FMDC challenge proposes a zero-shot/few-shot image classification problem leveraging FMs (i.e., CLIP, CoCa), to deal with novel samples in the real world. From an industry perspective, when novel samples occur in the business, we may retrieve and annotate every novel sample to re-train the model. However, it becomes too expensive if we perform this procedure whenever novel samples occur. To this end, utilizing the zero-shot/few-shot classification ability of recently-proposed foundational models can be a reasonable & presumable solution. Therefore, we hereby aim to empower candidate workshop participants to contemplate this challenge and let the students, researchers, and Machine Learning community access the industry-level dataset retrieved in the real world. 
+  Object discovery is the task of automatically identifying and grouping semantically coherent objects without human intervention. Discovery algorithms typically address several challenges like novelty detection, open world recognition and clustering, capabilities which are essential for systems deployed in-the-wild. This year, to facilitate discussions among researchers who have different backgrounds, we host a teaser challenge which studies a system's capabilities to discover and group novel object categories in a large unlabeled dataset.
 
  
 <!-- </div> -->
@@ -21,95 +21,92 @@ This year, in accordance with Visual Perception via Learning in an Open World (V
 <!-- <div class="toc" markdown="1"> -->
 ## Orgainizers
 
-The  FMDC Challenge 2023 is hosted by SOCAR. SOCAR is the largest car-sharing platform in Repbulic of Korea, providing a seamless mobility experience from car, public transportations, parking lots, electric bike, and even autonomous vehicles. The organizers are applied research scientists at SOCAR, and currently researching/developing on AI products for the business impact in the real world.
+This challnege is being orgnaised by the Perception Intelligece (PI) lab at University of Maryland, College Park. 
 
-<img src="images/organizers-3.png">
+The main organisers are:
+
+* Anubhav
+* Sonaal Kant
+* Pulkit Kumar
+* Abhinav Shrivastava
+
+## Important Dates
+
+* May 9 2023, Challenge Announcement
+* June 10 2023, challenge will be closed
+* June 15 2023, results will be released and participants will be selected to present
+* June 18 2023, workshop starts
 
 
 <!-- </div> -->
 
 <!-- <div class="toc" markdown="1"> -->
-## Problem Statement: Zero/Few-shot Image Classification with Foundational Models
+## Task and Evaluation Metric
+ The task of the challenge is to discover novel objects in a large corpus of unlabeled images using knowledge about known objects. Specifically, given a labeled dataset with K known objects and a large unlabeled dataset consisting of U (not known a-priori) unknown objects, algorithms should output a set of M (not known a-priori) clusters, each of which contains regions belonging to an object class. Additionally, an object detector should be trained for each cluster whose performance is evaluated on a held-out set to assess the real world applicability of the object discovery system.
 
-In this year's FMDC challenge, we propose a business problem called car state classification in the open world. A car state classification aims to recognize a car's various statuses (i.e., exterior damage, dirt, wash, etc.) that occur in the real world, especially in SOCAR, the largest car-sharing platform in the Republic of Korea. The SOCAR requires its users to take pictures of cars before they drive, to monitor the car's status. Based on these images, SOCAR establishes an image classifier that identifies the car's various statuses and performs follow-up business actions for efficient business operation (i.e., washing the car if 'exterior dirt' is detected, sending the car if harsh damage is detected). The most challenging part of managing this classifier is dealing with novel samples occurring in the real world. For example, how can we identify novel patterns of dirty cars? How can we recognize novel damage patterns such as harsh car breakage or accident? To resolve these challenges, leveraging FM's effectiveness, we propose the real-world car image dataset and empower the participants to solve this problem. When we use (i.e., fine-tune) FMs in industry, one of the challenging hurdles is the lack of descriptive caption. While web-crawled large-scale datasets such as [LAION-5B]('https://laion.ai/blog/laion-5b/') have affluent captions on each image, real-world images usually have class-level or even weakly-labeled annotations. Then, how can we effectively fine-tune or transfer the inductive bias at the FMs into the particular domain? This will be a primary starting point for your journey to this challenge.
-<!-- </div> -->
-
+The primary evaluation metric is the Area under the curve of Purity coverage plots [1][2] and PASCAL VOC style mean Average Precision at an IoU threshold of 0.50. Additionally we also report the number of clusters, number of objects discovered, Correct Localization.
 
 
 <!-- <div class="toc" markdown="1"> -->
-## Dataset
+### Protocol of Algorithm Design
+Proposed algorithms for this challenge will operate on widely used object detection datasets, i.e. PASCAL VOC 2007 and COCO 2014, and report results on two splits. Object discovery systems should be very careful about the assumptions of prior knowledge. To be precise, initializations used by algorithms should never be exposed/trained on categories they wish to discover. This curtails the pre-training of any network on the ImageNet [5] dataset using labeled data.
 
-In this challenge, we are releasing SOCAR (Socially-Obtained CAR) dataset, which includes ten-thousand car images retrieved from the real world car-sharing operation. For a detailed description of the SOCAR dataset, please refer to the paper [SOCAR: Socially-Obtained CAR Dataset for Image Recognition in the Wild]('https://openaccess.thecvf.com/content/WACV2023W/DNOW/papers/Seo_SOCAR_Socially-Obtained_CAR_Dataset_for_Image_Recognition_in_the_Wild_WACVW_2023_paper.pdf')
 
-The **Training Set** includes 13 classes, each representing car's status that the car-sharing platform can easily understand.
-
-* Exterior Normal
-* Exterior Damage
-* Bubble Wash
-* Car in a Washing machine
-* Dashboard
-* Cupholder
-* Glovebox
-* Washer Fluid
-* Front Seat
-* Read Seat
-* Trunk
-* Clean Sheet
-* Tire
-
-In a **Support Set** (which can be used under the few-shot learning setting), we provide 6 additional classes which cannot be easily expected in the real world. However, it becomes more challenging in the open-world setting as the pattern of these classes is diverse and cannot be expected a priori.
-
-* Exterior Dirt
-* Dirty Cupholder
-* Dirty Sheet
-* Dirty Seat
-* Car on a rainy day
-* Car on a snowy day
-
-In the **Test Set**, we provide a total of 19 classes of car status, which concatenates classes at both the Training and Support set.
-
+While we do not discourage teams from using weights of networks trained on ImageNet using labels, only weights trained using self-supervision will be considered for ranking on the leaderboard. While there is no restriction on the usage of models, teams should compare the model performance to a standard ResNet-50 network trained using DINO algorithm[3]. Teams should describe in detail, without fail, each component used and the amount of improvement they offer.
 <!-- </div> -->
 
  
 <!-- <div class="toc" markdown="1"> -->
-## Evaluation
-In this  FMDC Challenge 2023, we will measure **Macro F1-Score** as an evaluation metric. Under the given Test set, participants submit prediction results at each corresponing test samples. The submission format (.csv) is included in the dataset. After the participants submit their file to the submission site, it will be uploaded to the leaderboard.
+## Dataset description
+
+All systems submitted to the challenge are allowed to use three datasets, namely ImageNet 2012, PASCAL VOC 2007 and COCO 2014 datasets. See respective websites for the dataset formats.
+
+**Labeled dataset**: The object detection dataset, PASCAL VOC 2007 split is considered as the labeled dataset for this challenge. Teams can use the region level labels to train object detection models for their submissions. We assume the 20 categories of PASCAL-VOC as the known categories.
+
+**Discovery Set**: The COCO 2014 train set, without any labels, is used as the discovery dataset. The remaining categories, not common with PASCAL-VOC, are considered the novel categories. Teams are encouraged not to assume the number of novel categories to be known a-priori.
+
+**Pre-training dataset**: To train object detection datasets, ImageNet pre-training is a standard practice. Teams can leverage self-supervised or supervised learning to obtain weights for initialization. However, only the results using self-supervised learning will be considered for ranking.
+
+**Evaluation set**: All systems will be evaluated on the discovery performance and object detection performance. For object discovery, results are reported on the COCO 2014 train set. For object detection on the 20 known classes and the newly discovered objects, results will be reported on the COCO minival set.
+
+
 
 <!-- </div> -->
  
 <!-- <div class="toc" markdown="1"> -->
-## Important Dates:
+## Output format
 
-* May 13, 2023: Dataset Release and Challenge Start
-* May 19, 2023: Leaderboard Open
-* June 15, 2023: Challenge Deadline
-* June 18, 2023: VPLOW workshop
-
-Please Note that every deadlines are 23:59 in AoE timezone except for the VPLOW workshop date.
-
+All teams are required to return two csv files for evaluating object discovery and object detection performance. For object discovery, evaluated on COCO 2014 train split, the file format should be as follows. <image_id>, <x1>,<y1>,<x2>,<y2>,<cluster_id> Here <image_id> is the unique identifier of an image as used in COCO 2014 train set. For object detection, evaluated on COCO minival, the file format is as follows. <image_id>, <x1>,<y1>,<x2>,<y2>,<cluster_id>,<conf_score>
 <!-- </div> -->
 
-## Presentation
-To be updated soon! (updated in May 5, 2023)
+## Baseline code
+Participant's can refer to the baseline code providied [here](https://github.com/learn2phoenix/cvpr22_vplow_ow). The code is based on [2].
 
  
+## Evaluation server and submission
+**TBA**
 <!-- <div class="toc" markdown="1"> -->
+
+## References
+
+ [1] Carl Doersch, Abhinav Gupta, and Alexei A. Efros. Context as Supervisory Signal: Discovering Objects with Predictable Context. In ECCV 2014 
+
+ [2] Sai Saketh Rambhatla, Rama Chellappa, Abhinav Shrivastava. The Pursuit of Knowledge: Discovering and Localizing Novel Categories using Dual Memory. 
+
+ [3] Mathilde Caron, Hugo Touvron, Ishan Misra, Hervé Jégou, Julien Mairal, Piotr Bojanowski, Armand Joulin. Emerging Properties in Self-Supervised Vision Transformers
+
 ## Contact:
 
-* Kyung Ho Park (kp@socar.kr)
-* Hyunhee Chung (esther@socar.kr)
-* Taewon Seo (cillian@socar.kr)
-* Sanghuk Lee (leonard@socar.kr)
-* Hyeonsoo Kim (lucci@socar.kr)
+* Anubhav(anubhav[AT]umd[DOT]edu)
+* Sonaal Kant (sonaal[AT]umd[DOT]edu)
+* Pulkit Kumar (pulkit[AT]umd[DOT]edu)
+* Abhinav Shrivastava (abhinav[AT]umd[DOT]edu)
 
 <!-- </div> -->
 
-
-Hosted by [SOCAR](https://www.socar.kr/), {{ site.pub_year }}.
  
 > built using [Jekyll](https://jekyllrb.com/) and [GitHub Pages](https://pages.github.com/)
 >
-> images and content: cc-by-sa <a href="https://github.com/{{ site.github_username }}">{{ site.author }}</a> {{ site.pub_year}} (get [source code]({{ site.repo }})).
 > Last build date: {{ site.time | date: "%Y-%m-%d" }}.
 >
 > <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license"><img style="border-width: 0;" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Creative Commons License" /></a>
