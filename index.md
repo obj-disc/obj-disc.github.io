@@ -19,7 +19,7 @@ in accordance with [VPLOW workshop](https://vplow.github.io/vplow_3rd.html) at C
 
 
 <!-- <div class="toc" markdown="1"> -->
-## Orgainizers
+## Organizers
 
 This challenge is being organized by the Perception Intelligence (PI) lab at University of Maryland, College Park. 
 
