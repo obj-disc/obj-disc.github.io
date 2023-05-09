@@ -1,1 +1,459 @@
-Hello World
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style type="text/css">
+    body {
+        font-family: "Times New Roman", sans-serif;
+        font-weight: 300;
+        font-size: 18px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 1200px;
+    }
+
+    h1 {
+        font-size: 32px;
+        font-weight: 300;
+    }
+
+    .disclaimerbox {
+        background-color: #eee;
+        border: 1px solid #eeeeee;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        padding: 20px;
+    }
+
+    video.header-vid {
+        height: 140px;
+        border: 1px solid black;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+    }
+
+    img.header-img {
+        height: 140px;
+        border: 1px solid black;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+    }
+
+    img.rounded {
+        border: 1px solid #eeeeee;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+    }
+
+    a:link,
+    a:visited {
+        color: #1367a7;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #208799;
+    }
+
+    td.dl-link {
+        height: 160px;
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .layered-paper-big {
+        /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+        box-shadow:
+            0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+            /* The top layer shadow */
+            5px 5px 0 0px #fff,
+            /* The second layer */
+            5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+            /* The second layer shadow */
+            10px 10px 0 0px #fff,
+            /* The third layer */
+            10px 10px 1px 1px rgba(0, 0, 0, 0.35),
+            /* The third layer shadow */
+            15px 15px 0 0px #fff,
+            /* The fourth layer */
+            15px 15px 1px 1px rgba(0, 0, 0, 0.35),
+            /* The fourth layer shadow */
+            20px 20px 0 0px #fff,
+            /* The fifth layer */
+            20px 20px 1px 1px rgba(0, 0, 0, 0.35),
+            /* The fifth layer shadow */
+            25px 25px 0 0px #fff,
+            /* The fifth layer */
+            25px 25px 1px 1px rgba(0, 0, 0, 0.35);
+        /* The fifth layer shadow */
+        margin-left: 10px;
+        margin-right: 45px;
+    }
+
+    .paper-big {
+        /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+        box-shadow:
+            0px 0px 1px 1px rgba(0, 0, 0, 0.35);
+        /* The top layer shadow */
+
+        margin-left: 10px;
+        margin-right: 45px;
+    }
+
+
+    .layered-paper {
+        /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+        box-shadow:
+            0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+            /* The top layer shadow */
+            5px 5px 0 0px #fff,
+            /* The second layer */
+            5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+            /* The second layer shadow */
+            10px 10px 0 0px #fff,
+            /* The third layer */
+            10px 10px 1px 1px rgba(0, 0, 0, 0.35);
+        /* The third layer shadow */
+        margin-top: 5px;
+        margin-left: 10px;
+        margin-right: 30px;
+        margin-bottom: 5px;
+    }
+
+    .vert-cent {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    }
+</style>
+
+<html>
+
+<head>
+    <title>Dual Memory</title>
+    <meta property="og:image" content="../images/teaser_try1.png" />
+    <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+    <meta property="og:title"
+        content="The Pursuit of Knowledge: Discovering and Localizing novel concepts using Dual Memory" />
+    <meta property="og:description" content="Discovering novel objects in the wild using Dual memory" />
+
+    <!-- Get from Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src=""></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-75863369-6');
+    </script>
+</head>
+
+<body>
+    <br>
+    <center>
+        <span style="font-size:30px">Object Discovery Challenge </br></span>
+        <br>
+        <br>
+        <span style="font-size:24">Held in conjuction with VPLOW at CVPR 2023.</span>
+        <br>
+        <br>
+
+
+
+
+
+
+        <table align=center width=1000px>
+            <center>
+                <h1>Abstract</h1>
+            </center>
+            <tr>
+                <td>
+                    Object discovery is the task of automatically identifying and grouping semantically coherent objects
+                    without human
+                    intervention. Discovery algorithms typically address several challenges like novelty detection, open
+                    world recognition
+                    and clustering, capabilities which are essential for systems deployed in-the-wild. This year, to
+                    facilitate discussions
+                    among researchers who have different backgrounds, we host a teaser challenge which studies a
+                    system's capabilities to
+                    discover and group novel object categories in a large unlabeled dataset.
+                </td>
+            </tr>
+        </table>
+        <br>
+
+        <!-- <hr>
+	<center><h1>Talk</h1></center>
+	<p align="center">
+		<iframe width="660" height="395" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
+	</p>
+
+	<table align=center width=800px>
+		<br>
+		<tr>
+			<center>
+				<span style="font-size:28px"><a href=''>[Slides]</a>
+				</span>
+			</center>
+		</tr>
+	</table> -->
+        <hr>
+
+        <center>
+            <h1>Important Dates (TBD)</h1>
+        </center>
+
+        <table align=center width=420px>
+            <center>
+                <tr>
+                    <td>
+                        <p class="text-justify">
+                            <li>May 9 2023, Challenge Announcement</li>
+                            <li>
+                                June 10 2023, challenge will be closed
+                            </li>
+                            <li>
+                                June 15 2023, results will be released and participants will be selected to present
+                            </li>
+                            <li>
+                                June 18 2023, workshop starts
+                            </li>
+                        </p>
+
+                    </td>
+                </tr>
+            </center>
+        </table>
+        <hr>
+
+
+        <center>
+            <h1>Task and Evaluation Metric</h1>
+        </center>
+        <!-- <table align=center width=850px> -->
+        <table align=center width=1000px>
+            <tr>
+
+                <td>
+                    <p class="text-justify">
+                        The task of the challenge is to discover novel objects in a large corpus of unlabeled images
+                        using knowledge about known
+                        objects. Specifically, given a labeled dataset with K known objects and a large unlabeled
+                        dataset consisting of U (not
+                        known a-priori) unknown objects, algorithms should output a set of M (not known a-priori)
+                        clusters, each of which
+                        contains regions belonging to an object class. Additionally, an object detector should be
+                        trained for each cluster whose
+                        performance is evaluated on a held-out set to assess the real world applicability of the object
+                        discovery system.
+
+                    <p class="text-justify">
+                        The primary evaluation metric is the Area under the curve of Purity coverage plots [1][2] and
+                        PASCAL VOC style mean
+                        Average Precision at an IoU threshold of 0.50. Additionally we also report the number of
+                        clusters, number of objects
+                        discovered, Correct Localization.
+                </td>
+
+            </tr>
+        </table>
+        <hr>
+
+
+        <center>
+            <h1>Protocol of Algorithm Design</h1>
+        </center>
+        <!-- <table align=center width=850px> -->
+        <table align=center width=1000px>
+            <tr>
+
+                <td>
+                    <p class="text-justify">
+                        Proposed algorithms for this challenge will operate on widely used object detection datasets,
+                        i.e. PASCAL VOC 2007 and
+                        COCO 2014, and report results on two splits.
+                        Object discovery systems should be very careful about the assumptions of prior knowledge. To be
+                        precise, initializations
+                        used by algorithms should never be exposed/trained on categories they wish to discover. This
+                        curtails the pre-training
+                        of any network on the ImageNet [5] dataset using labeled data.
+
+
+                    <p class="text-justify">
+                        While we do not discourage teams from using weights of networks trained on ImageNet using
+                        labels, only weights trained
+                        using self-supervision will be considered for ranking on the leaderboard. While there is no
+                        restriction on the usage of
+                        models, teams should compare the model performance to a standard ResNet-50 network trained using
+                        DINO algorithm[3].
+                        Teams should describe in detail, without fail, each component used and the amount of improvement
+                        they offer.
+
+                </td>
+
+            </tr>
+        </table>
+        <hr>
+
+        <center>
+            <h1>Dataset description</h1>
+        </center>
+        <!-- <table align=center width=850px> -->
+        <table align=center width=1000px>
+            <tr>
+
+                <td>
+                    <p class="text-justify">
+                        All systems submitted to the challenge are allowed to use three datasets, namely ImageNet 2012,
+                        PASCAL VOC 2007 and COCO
+                        2014 datasets. See respective websites for the dataset formats.
+
+                    <p class="text-justify">
+                        <strong>Labeled dataset</strong>: The object detection dataset, PASCAL VOC 2007 split is
+                        considered as the labeled dataset for this
+                        challenge. Teams can use the region level labels to train object detection models for their
+                        submissions. We assume the
+                        20 categories of PASCAL-VOC as the known categories.
+
+                    </p>
+
+                    <p class="text-justify">
+                        <strong>Discovery Set</strong>: The COCO 2014 train set, without any labels, is used as the
+                        discovery dataset. The remaining categories, not common with
+                        PASCAL-VOC, are considered the novel categories. Teams are encouraged not to assume the number
+                        of novel categories to be
+                        known a-priori.
+                    </p>
+
+                    <p class="text-justify">
+                        <strong>Pre-training dataset</strong>: To train object detection datasets, ImageNet pre-training
+                        is a standard practice. Teams can
+                        leverage self-supervised or supervised learning to obtain weights for initialization. However,
+                        only the results using
+                        self-supervised learning will be considered for ranking.
+
+                    </p>
+
+                    <p class="text-justify">
+                        <strong>Evaluation set</strong>: All systems will be evaluated on the discovery performance and
+                        object detection performance. For object
+                        discovery, results are reported on the COCO 2014 train set. For object detection on the 20 known
+                        classes and the newly
+                        discovered objects, results will be reported on the COCO minival set.
+
+                    </p>
+
+
+
+
+
+                </td>
+
+            </tr>
+        </table>
+        <hr>
+        <center>
+            <h1>Output format</h1>
+        </center>
+        <!-- <table align=center width=850px> -->
+        <table align=center width=1000px>
+            <tr>
+
+                <td>
+                    All teams are required to return two csv files for evaluating object discovery and object detection
+                    performance. For
+                    object discovery, evaluated on COCO 2014 train split, the file format should be as follows.
+                    &ltimage_id&gt, &ltx1&gt,&lty1&gt,&ltx2&gt,&lty2&gt,&ltcluster_id&gt
+                    Here &ltimage_id&gt is the unique identifier of an image as used in COCO 2014 train set.
+                    For object detection, evaluated on COCO minival, the file format is as follows.
+                    &ltimage_id&gt, &ltx1&gt,&lty1&gt,&ltx2&gt,&lty2&gt,&ltcluster_id&gt,&ltconf_score&gt
+
+                </td>
+
+            </tr>
+        </table>
+        <hr>
+
+        <table align=center width=750px>
+            <center>
+                <h1>Reference Paper and Code</h1>
+            </center>
+            <tr>
+                <td><a href="../data/ICCV2021_PoHa.pdf"><img class="layered-paper-big" style="height:175px"
+                            src="../images/poha_paper.png" /></a></td>
+                <td><span style="font-size:14pt">S. Rambhatla, R. Chellappa, A. Shrivastava.<br>
+                        <b>The Pursuit of Knowledge: Discovering and Localizing novel categories using dual
+                            memory</b><br>
+                        <!-- In Conference, 20XX.<br> -->
+                        <!-- (hosted on <a href="">ArXiv</a>)<br> -->
+                        <a href="../data/ICCV2021_PoHa.pdf">Paper</a> |
+                        <a href="../data/ICCV2021_PoHa_suppl.pdf">Supplementary</a> | <a
+                            href="https://arxiv.org/abs/2105.01652">arXiv</a> | <a
+                            href="../bibtex/poha_bibtex.txt">Bibtex</a>|
+                        <a href="https://github.com/learn2phoenix/cvpr22_vplow_ow">Code</a><br>
+                        <span style="font-size:4pt"><a href=""><br></a>
+                        </span>
+                </td>
+            </tr>
+        </table>
+
+        <br>
+        <hr>
+
+
+        <table align=center width=750px>
+            <center>
+                <h1>Evaluation server and submission</h1>
+            </center>
+            <tr>
+                <td>
+                    <p class="text-justify">
+                        <strong>TBA</strong>
+
+
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        <hr>
+        <table align=center width=750px>
+            <center>
+                <h1>References</h1>
+            </center>
+            <tr>
+                <td>
+                    <p class="text-justify">
+
+                        [1] Carl Doersch, Abhinav Gupta, and Alexei A. Efros. Context as Supervisory Signal: Discovering
+                        Objects with
+                        Predictable Context. In ECCV 2014 <br>
+                        [2] Sai Saketh Rambhatla, Rama Chellappa, Abhinav Shrivastava. The Pursuit of Knowledge:
+                        Discovering and Localizing
+                        Novel Categories using Dual Memory. <br>
+                        [3] Mathilde Caron, Hugo Touvron, Ishan Misra, Hervé Jégou, Julien Mairal, Piotr Bojanowski,
+                        Armand Joulin. Emerging
+                        Properties in Self-Supervised Vision Transformers
+
+
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        <hr>
+</body>
+
+</html>
