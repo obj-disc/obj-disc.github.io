@@ -1,10 +1,8 @@
 ---
-title: Dataset & Submission
+title: Submission
 nav: true
 ---
 
-# Dataset Access
-* To be updated soon
-
 # Submission
-* To be updated soon
+* Please register your team [here](http://54.198.124.69/register)
+* Then submit your results [here](http://54.198.124.69/)

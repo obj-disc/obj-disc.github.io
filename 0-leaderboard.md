@@ -3,4 +3,4 @@ title: Leaderboard
 nav: true
 ---
 
-# To be updated soon
+# [Leaderboard](http://54.198.124.69/results)

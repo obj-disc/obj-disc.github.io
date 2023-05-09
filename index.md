@@ -21,7 +21,7 @@ in accordance with [VPLOW workshop](https://vplow.github.io/vplow_3rd.html) at C
 <!-- <div class="toc" markdown="1"> -->
 ## Orgainizers
 
-This challnege is being orgnaised by the Perception Intelligece (PI) lab at University of Maryland, College Park. 
+This challenge is being organized by the Perception Intelligence (PI) lab at University of Maryland, College Park. 
 
 The main organisers are:
 
@@ -34,7 +34,7 @@ The main organisers are:
 
 * May 9 2023, Challenge Announcement
 * June 10 2023, challenge will be closed
-* June 15 2023, results will be released and participants will be selected to present
+* June 15 2023, participants will be selected to present
 * June 18 2023, workshop starts
 
 
