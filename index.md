@@ -86,16 +86,17 @@ Participant's can refer to the baseline code providied [here](https://github.com
 ## Evaluation protocol
 Submissions will be ranked based on the following metric:
 
-[//]: # ($$performance = \Sigma_{1}^{N} \frac{purity_{i}*N_{i}}{rank_{i}} $$)
-
 \begin{equation}
 \begin{aligned}
-  {performance} = \Sigma_{1}^{N}\frac{purity_{i}*N_{i}}{rank_{i}}
+  {performance} = \frac{\Sigma_{1}^{N}\frac{Purity_{i}*N_{i}}{rank_{i}}}{D}
 \end{aligned}
 \end{equation}
 
 {% raw %}
-  $$a^2 + b^2 = c^2$$ --> note that all equations between these tags will not need escaping! 
+  $${N}_{i} = \text{Number of objects in cluster i}$$
+  $${Purity}_{i} = \text{Purity of cluster i}$$
+  $${rank}_{i} = \text{Rank of cluster i based on purity}$$
+  $${D} = \text{Total number of objects in the dataset}$$
 {% endraw %}
 
 ## References
