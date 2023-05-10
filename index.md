@@ -90,11 +90,7 @@ Submissions will be ranked based on the following metric:
 
 \begin{equation}
 \begin{aligned}
-  {\sigma}_{1} =  
-  \begin{pmatrix}
-    0 & 1 \\\\\\\\
-    1 & 0
-  \end{pmatrix} 
+  {performance} = \Sigma_{1}^{N}\frac{purity_{i}*N_{i}}{rank_{i}}
 \end{aligned}
 \end{equation}
 
