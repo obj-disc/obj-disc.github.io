@@ -88,12 +88,13 @@ Submissions will be ranked based on the following metric:
 
 \begin{equation}
 \begin{aligned}
-  {performance} = \frac{\Sigma_{1}^{N}\frac{Purity_{i}*N_{i}}{rank_{i}}}{D}
+  {performance} = \frac{\Sigma_{1}^{N}\frac{Purity_{i}*C_{i}}{rank_{i}}}{D}
 \end{aligned}
 \end{equation}
 
 {% raw %}
-  $${N}_{i} = \text{Number of objects in cluster i}$$
+  $${N} = \text{Total number of clusters}$$
+  $${C}_{i} = \text{Number of objects in cluster i}$$
   $${Purity}_{i} = \text{Purity of cluster i}$$
   $${rank}_{i} = \text{Rank of cluster i based on purity}$$
   $${D} = \text{Total number of objects in the dataset}$$
