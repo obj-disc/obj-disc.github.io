@@ -88,7 +88,7 @@ Submissions will be ranked based on the following metric:
 
 \begin{equation}
 \begin{aligned}
-  \LARGE{performance}=\frac{\Sigma_{1}^{N}\frac{Purity_{i}*C_{i}}{rank_{i}}}{D}}
+  \LARGE{{performance}=\frac{\Sigma_{1}^{N}\frac{Purity_{i}*C_{i}}{rank_{i}}}{D}}
 \end{aligned}
 \end{equation}
 
