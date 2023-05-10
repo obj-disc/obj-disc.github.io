@@ -86,7 +86,21 @@ Participant's can refer to the baseline code providied [here](https://github.com
 ## Evaluation protocol
 Submissions will be ranked based on the following metric:
 
-$$performance = \Sigma_{1}^{N} \frac{purity_{i}*N_{i}}{rank_{i}} $$
+[//]: # ($$performance = \Sigma_{1}^{N} \frac{purity_{i}*N_{i}}{rank_{i}} $$)
+
+\begin{equation}
+\begin{aligned}
+  {\sigma}_{1} =  
+  \begin{pmatrix}
+    0 & 1 \\\\\\\\
+    1 & 0
+  \end{pmatrix} 
+\end{aligned}
+\end{equation}
+
+{% raw %}
+  $$a^2 + b^2 = c^2$$ --> note that all equations between these tags will not need escaping! 
+{% endraw %}
 
 ## References
 
