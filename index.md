@@ -44,7 +44,7 @@ The main organisers are:
 ## Task and Evaluation Metric
  The task of the challenge is to discover novel objects in a large corpus of unlabeled images using knowledge about known objects. Specifically, given a labeled dataset with K known objects and a large unlabeled dataset consisting of U (not known a-priori) unknown objects, algorithms should output a set of M (not known a-priori) clusters, each of which contains regions belonging to an object class. Additionally, an object detector should be trained for each cluster whose performance is evaluated on a held-out set to assess the real world applicability of the object discovery system.
 
-The primary evaluation metric is the Area under the curve of Purity coverage plots [1][2] and PASCAL VOC style mean Average Precision at an IoU threshold of 0.50. Additionally we also report the number of clusters, number of objects discovered, Correct Localization.
+The primary evaluation metric is the Area under the curve of Purity coverage plots [1][2] and PASCAL VOC style mean Average Precision at an IoU threshold of 0.50. Additionally, we also report the number of clusters, number of objects discovered, Correct Localization.
 
 
 <!-- <div class="toc" markdown="1"> -->
@@ -80,7 +80,7 @@ All teams are required to return two csv files for evaluating object discovery a
 <!-- </div> -->
 
 ## Baseline code
-Participant's can refer to the baseline code providied [here](https://github.com/learn2phoenix/cvpr22_vplow_ow). The code is based on [2].
+Participant's can refer to the baseline code provided [here](https://github.com/learn2phoenix/cvpr22_vplow_ow). The code is based on [2].
 
  
 ## Evaluation protocol
@@ -88,7 +88,7 @@ Submissions will be ranked based on the following metric:
 
 \begin{equation}
 \begin{aligned}
-  \large{{performance} = \frac{\Sigma_{1}^{N}\frac{Purity_{i}*C_{i}}{rank_{i}}}{D}}
+  \large{{performance}=\frac{\Sigma_{1}^{N}\frac{Purity_{i}*C_{i}}{rank_{i}}}{D}}
 \end{aligned}
 \end{equation}
 
