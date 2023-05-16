@@ -94,10 +94,10 @@ Submissions will be ranked based on the following metric:
 
 {% raw %}
   $${N} = \text{Total number of clusters}$$
-  $${C}_{i} = \text{Number of objects in cluster i}$$
+  $${C}_{i} = \text{Number of elements in the cluster i}$$
   $${Purity}_{i} = \text{Purity of cluster i}$$
   $${rank}_{i} = \text{Rank of cluster i based on purity}$$
-  $${D} = \text{Total number of objects in the dataset}$$
+  $${D} = \text{Total number of instances in the dataset}$$
 {% endraw %}
 
 ## References
