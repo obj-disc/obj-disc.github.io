@@ -99,6 +99,11 @@ Submissions will be ranked based on the following metric:
   $${D} = \text{Total number of instances in the dataset}$$
 {% endraw %}
 
+### Note
+- The implementation of the above metric can be found [here](https://github.com/learn2phoenix/cvpr22_vplow_ow).
+
+- In order to make sure that each cluster contains significant information, we introduce a cluster filtering stage. If a cluster consists of isntances spanning less than `5` images, we discard the cluster along with its elements. 
+
 ## References
 
  [1] Carl Doersch, Abhinav Gupta, and Alexei A. Efros. Context as Supervisory Signal: Discovering Objects with Predictable Context. In ECCV 2014 
