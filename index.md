@@ -100,7 +100,7 @@ Submissions will be ranked based on the following metric:
 {% endraw %}
 
 ### Note
-- The implementation of the above metric can be found [here](https://github.com/learn2phoenix/cvpr22_vplow_ow).
+- The implementation of the above metric will be available soon.
 
 - In order to make sure that each cluster contains significant information, we introduce a cluster filtering stage. If a cluster consists of isntances spanning less than `5` images, we discard the cluster along with its elements. 
 
