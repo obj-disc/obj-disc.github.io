@@ -27,6 +27,9 @@ in accordance with [VPLOW workshop](https://vplow.github.io/vplow_3rd.html) at C
 * June 15 2023, participants will be selected to present
 * June 18 2023, workshop starts
 
+## <span style="color:red;">Updates</span>
+- \[May 17, 2023\] - Updated new metric's explaination.
+- \[May 19, 2023\] - Added new metric code with cluster filtering in the baseline repo. Refer README for more specifics.
 
 <!-- </div> -->
 
