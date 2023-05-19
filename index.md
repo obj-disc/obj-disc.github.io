@@ -29,7 +29,7 @@ in accordance with [VPLOW workshop](https://vplow.github.io/vplow_3rd.html) at C
 
 ## <span style="color:red;">Updates</span>
 - \[May 17, 2023\] - Updated new metric's explaination.
-- \[May 19, 2023\] - Added new metric code with cluster filtering in the baseline repo. Refer README for more specifics.
+- \[May 19, 2023\] - Added new metric code with cluster filtering in the [baseline repo](https://github.com/learn2phoenix/cvpr22_vplow_ow). Refer README for more specifics.
 
 <!-- </div> -->
 
