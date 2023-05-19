@@ -19,16 +19,6 @@ in accordance with [VPLOW workshop](https://vplow.github.io/vplow_3rd.html) at C
 
 
 <!-- <div class="toc" markdown="1"> -->
-## Organizers
-
-This challenge is being organized by the Perception Intelligence (PI) lab at University of Maryland, College Park. 
-
-The main organisers are:
-
-* Anubhav
-* Sonaal Kant
-* Pulkit Kumar
-* Abhinav Shrivastava
 
 ## Important Dates
 
@@ -111,6 +101,17 @@ Submissions will be ranked based on the following metric:
  [2] Sai Saketh Rambhatla, Rama Chellappa, Abhinav Shrivastava. The Pursuit of Knowledge: Discovering and Localizing Novel Categories using Dual Memory. 
 
  [3] Mathilde Caron, Hugo Touvron, Ishan Misra, Hervé Jégou, Julien Mairal, Piotr Bojanowski, Armand Joulin. Emerging Properties in Self-Supervised Vision Transformers
+
+ ## Organizers
+
+This challenge is being organized by the Perception Intelligence (PI) lab at University of Maryland, College Park. 
+
+The main organisers are:
+
+* Anubhav
+* Sonaal Kant
+* Pulkit Kumar
+* Abhinav Shrivastava
 
 ## Contact:
 
