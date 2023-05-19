@@ -105,16 +105,18 @@ Submissions will be ranked based on the following metric:
 
  [3] Mathilde Caron, Hugo Touvron, Ishan Misra, Hervé Jégou, Julien Mairal, Piotr Bojanowski, Armand Joulin. Emerging Properties in Self-Supervised Vision Transformers
 
- ## Organizers
+## Organizers
 
 This challenge is being organized by the Perception Intelligence (PI) lab at University of Maryland, College Park. 
 
 The main organisers are:
 
-* Anubhav
-* Sonaal Kant
-* Pulkit Kumar
-* Abhinav Shrivastava
+* [Anubhav](https://www.linkedin.com/in/anubhav-5209729/)
+* [Sonaal Kant](https://www.linkedin.com/in/sonaal-kant-03b707103/)
+* [Pulkit Kumar](https://www.cs.umd.edu/~pulkit/)
+* [Abhinav Shrivastava](https://www.cs.umd.edu/~abhinav/)
+
+
 
 ## Contact:
 
@@ -122,6 +124,10 @@ The main organisers are:
 * Sonaal Kant (sonaal[AT]umd[DOT]edu)
 * Pulkit Kumar (pulkit[AT]umd[DOT]edu)
 * Abhinav Shrivastava (abhinav[AT]umd[DOT]edu)
+
+## Have a look at another Challenge
+
+This year, [SOCAR](https://www.socar.kr) is also hosting a teaser challenege at VPLOW. Check out their challenge page [here](https://socar-esther.github.io).
 
 <!-- </div> -->
 
