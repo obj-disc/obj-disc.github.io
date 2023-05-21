@@ -69,7 +69,13 @@ All systems submitted to the challenge are allowed to use three datasets, namely
 <!-- <div class="toc" markdown="1"> -->
 ## Output format
 
-All teams are required to return two csv files for evaluating object discovery and object detection performance. For object discovery, evaluated on COCO 2014 train split, the file format should be as follows. `<image_id>, <x1>,<y1>,<x2>,<y2>,<cluster_id>` Here `<image_id>` is the unique identifier of an image as used in COCO 2014 train set. For object detection, evaluated on COCO minival, the file format is as follows. `<image_id>, <x1>,<y1>,<x2>,<y2>,<cluster_id>,<conf_score>`
+All teams are required to return two csv files for evaluating object discovery and object detection performance. For object discovery, evaluated on COCO 2014 train split, the file format should be as follows. `<image_id>, <x1>,<y1>,<x2>,<y2>,<cluster_id>` Here `<image_id>` is the unique identifier of an image as used in COCO 2014 train set. For object detection, evaluated on COCO minival, the file format is as follows. `<image_id>, <x1>,<y1>,<x2>,<y2>,<cluster_id>,<conf_score>`. The structure of zip file should be as follows:
+```angular2html
+filename.zip
+├── discovery.csv
+└── detection.csv
+```
+
 <!-- </div> -->
 
 ## Baseline code
